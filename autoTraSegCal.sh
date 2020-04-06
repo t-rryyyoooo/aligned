@@ -92,7 +92,7 @@ do
   echo "Save:${savePat}"
   echo "GPU_ID:${id}"
 
-  #python3 segmentation.py ${imageDirectory} ${segWeight} ${savePat} -g ${id} --noFlip --outputImageSize ${PATCHSIZE}
+  python3 segmentation.py ${imageDirectory} ${segWeight} ${savePat} -g ${id} --noFlip --outputImageSize ${PATCHSIZE}
 
 done
 

@@ -107,3 +107,5 @@ Average kidney: 0.9706005466506105
 Average cancer: 0.4972819230381567  
 
 /home/vmlab/Desktop/data/patch/256_256_5_cancer_3d_noFlip/segmentation/original
+/home/vmlab/Desktop/data/patch/256_256_5_cancer_3d_noFlip/segmentation/original
+/home/vmlab/Desktop/data/patch/256_256_5_cancer_3d_noFlip/segmentation/original
