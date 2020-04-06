@@ -32,21 +32,7 @@ def main(args):
 
     slicer.execute()
     patientID = args.imageDirectory.split("/")[-1]
-    #slicer.save(args.saveSlicePath, patientID)
-
-    """
-    For restoration test. 
-    """
-
-    predictArrayList, _ = slicer.output("Array")
-
-    predictArray = slicer.restore(predictArrayList)
-
-    predict = getImageWithMeta(predictArray, label)
-    sitk.WriteImage(predict, "test/test.mha")
-
-
-
+    slicer.save(args.saveSlicePath, patientID)
 
 if __name__ == '__main__':
     args = ParseArgs()
