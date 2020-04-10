@@ -11,7 +11,7 @@ readonly DATA="$HOME/Desktop/data/kits19"
 readonly SAVE="$HOME/Desktop/data/patch"
 readonly BATCHSIZE=15
 readonly EPOCH=300
-readonly RESULT="result"
+readonly RESULT="$HOME/Desktop/data/result"
 readonly PATCHSIZE="256-256-5"
 
 # Determine input details.
@@ -77,7 +77,7 @@ echo "Loss history:${histories}"
 echo "Log:${log}"
 
 # Training module.
-#python3 buildUnet.py ${training} --bestfile ${best} --initialfile ${initial} --latestfile ${latest} -t ${validation} --history ${histories} -b ${BATCHSIZE} -e ${EPOCH} -g ${id} --logdir ${log}
+python3 buildUnet.py ${training} --bestfile ${best} --initialfile ${initial} --latestfile ${latest} -t ${validation} --history ${histories} -b ${BATCHSIZE} -e ${EPOCH} -g ${id} --logdir ${log}
 
 # Segmentation module.
 echo "---Segmentation---"

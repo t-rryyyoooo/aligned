@@ -6,6 +6,8 @@ readonly VALIDATION="$HOME/Desktop/data/textList/validation_"
 readonly WEIGHT="$HOME/Desktop/data/modelweight"
 readonly HISTORY="$HOME/Desktop/data/history/history_"
 readonly LOG="$HOME/Desktop/data/log"
+readonly BATCHSIZE=15
+readonly EPOCH=300
 
 echo -n Suffix:
 read suffix
@@ -44,5 +46,5 @@ echo "LatestWeight:${latestWeight}"
 echo $histories
 echo "Log:${log}"
 
-python3 buildUnet.py ${training} --bestfile ${bestWeight} --initialfile ${initialWeight} --latestfile ${latestWeight} -t ${validation} --history ${histories} -b 15 -e 300 -g $id --logdir ${log}
+python3 buildUnet.py ${training} --bestfile ${bestWeight} --initialfile ${initialWeight} --latestfile ${latestWeight} -t ${validation} --history ${histories} -b ${BATCHSIZE} -e ${EPOCH} -g $id --logdir ${log}
 
