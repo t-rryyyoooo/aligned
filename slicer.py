@@ -151,7 +151,6 @@ class slicer():
         extractSliceFilter.SetSize(size)
         extractSliceFilter.SetIndex(index)
         self.sliceImage = extractSliceFilter.Execute(self.image)
-        self.sliceImage.SetDirection((0.0, 1.0, 1.0, 0.0))
 
         self.cuttedLabelList = [[] for _ in range(2)]
         self.cuttedImageList = [[] for _ in range(2)]
