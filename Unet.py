@@ -103,9 +103,3 @@ def ConstructModel(input_images, nclasses, use_bn = True, use_dropout = True):
 
     return x
 
-inputShape = (256, 256, 3)
-inputs = tf.keras.layers.Input(shape=inputShape)
-segmentation = ConstructModel(inputs, 3)
-
-model = tf.keras.models.Model(inputs, segmentation)
-model.summary(line_length=150)#positions=[.33, .55, .67, .1])
