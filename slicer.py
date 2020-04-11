@@ -121,7 +121,7 @@ class slicer():
                 cuttedImageArray = []
                 cuttedStackedLabelArray = []
                 for y in range(-margin, margin + 1):
-                    if x <= x + y < length:
+                    if 0 <= x + y < length:
                         cuttedStackedLabelArray.append(largestKidneyLabelArray[i][sagittalSlice, coronalSlice, x + y])
                         cuttedImageArray.append(largestKidneyImageArray[i][sagittalSlice, coronalSlice, x + y])
 
@@ -151,7 +151,6 @@ class slicer():
         extractSliceFilter.SetSize(size)
         extractSliceFilter.SetIndex(index)
         self.sliceImage = extractSliceFilter.Execute(self.image)
-        self.sliceImage.SetDirection((0.0, 1.0, 1.0, 0.0))
 
         self.cuttedLabelList = [[] for _ in range(2)]
         self.cuttedImageList = [[] for _ in range(2)]
