@@ -15,10 +15,13 @@ do
 done
 
 if [ $machine = "gv100" ];then
-  ip="192.168.1.210"
+  ip="130.158.46.12"
+  port=100
 
 elif [ $machine = "red" ];then
-  ip="192.168.1.208"
+  ip="130.158.46.12"
+  port=222
+
 
 fi
 
@@ -55,9 +58,9 @@ latest="${weight}/latest.hdf5"
 best="${weight}/best.hdf5"
 initial="${weight}/initial.hdf5"
 
-scp -P 22222 "${ip}:${latest}" ${latest}
-scp -P 22222 "${ip}:${best}" ${best}
-scp -P 22222 "${ip}:${initial}" ${initial}
+scp -P ${port} "${ip}:${latest}" ${latest}
+scp -P ${port} "${ip}:${best}" ${best}
+scp -P ${port} "${ip}:${initial}" ${initial}
 
 echo "From ${ip}:${latest}" 
 echo "To ${latest}"
