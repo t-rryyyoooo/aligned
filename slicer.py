@@ -49,9 +49,11 @@ class slicer():
         self.meta[1]["largestSlice"] = largestSlice
 
         if not self.noFlip:
-            print("The kidney doesn't flip.")
             largestKidneyLabelArray[1] = largestKidneyLabelArray[1][::-1, ...]
             largestKidneyImageArray[1] = largestKidneyImageArray[1][::-1, ...]
+        else:
+            print("The kidney doesn't flip.")
+
 
         self.cuttedLabelArrayList = [[] for _ in range(2)]
         self.cuttedStackedLabelArrayList = [[] for _ in range(2)]
