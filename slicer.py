@@ -121,7 +121,7 @@ class slicer():
                 cuttedImageArray = []
                 cuttedStackedLabelArray = []
                 for y in range(-margin, margin + 1):
-                    if x <= x + y < length:
+                    if 0 <= x + y < length:
                         cuttedStackedLabelArray.append(largestKidneyLabelArray[i][sagittalSlice, coronalSlice, x + y])
                         cuttedImageArray.append(largestKidneyImageArray[i][sagittalSlice, coronalSlice, x + y])
 
