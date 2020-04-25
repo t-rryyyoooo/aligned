@@ -77,7 +77,7 @@ echo "Loss history:${histories}"
 echo "Log:${log}"
 
 # Training module.
-python3 buildUnet.py ${training} --bestfile ${best} --initialfile ${initial} --latestfile ${latest} -t ${validation} --history ${histories} -b ${BATCHSIZE} -e ${EPOCH} -g ${id} --logdir ${log}
+python3 buildUnet.py ${training} --bestfile ${best} --initialfile ${initial} --latestfile ${latest} -t ${validation} --history ${histories} -b ${BATCHSIZE} -e ${EPOCH} -g ${id} --logdir ${log} 
 
 # Segmentation module.
 echo "---Segmentation---"
@@ -99,7 +99,7 @@ done
 # Caluculate DICE module.
 echo "---CaluculateDICE---"
 
-result="${RESULT}/${directory}/${sub}"
+result="${RESULT}/${directory}/${sub}/${whichWeight}"
 
 mkdir -p ${result}
 

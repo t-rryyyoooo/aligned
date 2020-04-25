@@ -73,6 +73,7 @@ def main(_):
             segmentedArray = model.predict(imageArray, batch_size=args.batchsize, verbose=0)
             segmentedArray = np.squeeze(segmentedArray)
             segmentedArray = np.argmax(segmentedArray, axis=-1).astype(np.uint8)
+            print((segmentedArray > 0).any())
             segmentedArrayList[i].append(segmentedArray)
 
     """ Restore module. """
