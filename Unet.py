@@ -103,3 +103,4 @@ def ConstructModel(input_images, nclasses, use_bn = True, use_dropout = True):
 
     return x
 
+

@@ -28,7 +28,7 @@ class slicer():
             sys.exit()
 
         self.outputImageSize = [int(s) for s in matchobj.groups()]
-        self.outputLabelSize = self.outputImageSize[:2] + [1]
+        self.outputLabelSize = self.outputImageSize[:2]
         
         startIndex, endIndex = searchBound(labelArray, "sagittal")
         if len(startIndex) != 2:
@@ -157,7 +157,7 @@ class slicer():
         for i in range(2):
             length = len(self.cuttedLabelArrayList[i])
             for x in tqdm(range(length), desc="Transforming images...", ncols=60):
-                cuttedLabel = getImageWithMeta(self.cuttedLabelArrayList[i][x][..., np.newaxis], self.image)
+                cuttedLabel = getImageWithMeta(self.cuttedLabelArrayList[i][x], self.sliceImage)
                 cuttedImage = getImageWithMeta(self.cuttedImageArrayList[i][x], self.image)
                 cuttedLabel = resampleSize(cuttedLabel, self.outputLabelSize[::-1], is_label = True)
                 cuttedImage = resampleSize(cuttedImage, self.outputImageSize[::-1])
