@@ -263,11 +263,13 @@ def penalty_categorical(y_true,y_pred):
 
     result = tf.reduce_sum(array_tf,[0,1,2,3])
     #result = tf.reduce_sum(array_tf,[0,1,2])
+    print(result)
 
     #result_pow = tf.pow(result,1.0/3.0)
     result_pow = tf.math.log(result)
 
     weight_y = result_pow / tf.reduce_sum(result_pow)
+    print(weight_y)
 
     k_dice = kidney_dice(y_true, y_pred)
     c_dice = cancer_dice(y_true, y_pred)

@@ -18,7 +18,7 @@ do
 
 	echo "DATA:$data"
 	echo "SAVE:$SAVE"
-	echo "PATCHSIZE:${PATCH}"
+	echo "PATCHSIZE:${PATCHSIZE}"
 
 	python3 sliceImage.py ${data} ${SAVE} --onlyCancer --noFlip --outputImageSize ${PATCHSIZE}
 

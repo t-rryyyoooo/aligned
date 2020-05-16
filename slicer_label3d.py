@@ -28,7 +28,7 @@ class slicer():
             sys.exit()
 
         self.outputImageSize = [int(s) for s in matchobj.groups()]
-        self.outputLabelSize = self.outputImageSize[:2]
+        self.outputLabelSize = self.outputImageSize[:2] + [1]
         
         startIndex, endIndex = searchBound(labelArray, "sagittal")
         if len(startIndex) != 2:
@@ -49,9 +49,11 @@ class slicer():
         self.meta[1]["largestSlice"] = largestSlice
 
         if not self.noFlip:
-            print("The kidney doesn't flip.")
             largestKidneyLabelArray[1] = largestKidneyLabelArray[1][::-1, ...]
             largestKidneyImageArray[1] = largestKidneyImageArray[1][::-1, ...]
+        else:
+            print("The kidney doesn't flip.")
+
 
         self.cuttedLabelArrayList = [[] for _ in range(2)]
         self.cuttedStackedLabelArrayList = [[] for _ in range(2)]
@@ -157,7 +159,7 @@ class slicer():
         for i in range(2):
             length = len(self.cuttedLabelArrayList[i])
             for x in tqdm(range(length), desc="Transforming images...", ncols=60):
-                cuttedLabel = getImageWithMeta(self.cuttedLabelArrayList[i][x], self.sliceImage)
+                cuttedLabel = getImageWithMeta(self.cuttedLabelArrayList[i][x][..., np.newaxis], self.image)
                 cuttedImage = getImageWithMeta(self.cuttedImageArrayList[i][x], self.image)
                 cuttedLabel = resampleSize(cuttedLabel, self.outputLabelSize[::-1], is_label = True)
                 cuttedImage = resampleSize(cuttedImage, self.outputImageSize[::-1])
